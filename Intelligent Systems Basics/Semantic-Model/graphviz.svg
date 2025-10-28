@@ -1,0 +1,359 @@
+<svg width="1359pt" height="685pt" viewBox="0.00 0.00 1359.00 685.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 680.96)">
+<title>SemanticNetwork</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-680.96 1354.79,-680.96 1354.79,4 -4,4"/>
+<!-- Компьютерная_сеть -->
+<g id="node1" class="node">
+<title>Компьютерная_сеть</title>
+<polygon fill="lightyellow" stroke="black" points="1092.64,-307.96 944.38,-307.96 944.38,-271.96 1092.64,-271.96 1092.64,-307.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1018.51" y="-285.76" font-family="Arial" font-size="14.00">Компьютерная_сеть</text>
+</g>
+<!-- Топология -->
+<g id="node2" class="node">
+<title>Топология</title>
+<polygon fill="lightblue" stroke="black" points="1339.12,-277.96 1253.11,-277.96 1253.11,-241.96 1339.12,-241.96 1339.12,-277.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1296.12" y="-255.76" font-family="Arial" font-size="14.00">Топология</text>
+</g>
+<!-- Компьютерная_сеть&#45;&gt;Топология -->
+<g id="edge18" class="edge">
+<title>Компьютерная_сеть-&gt;Топология</title>
+<path fill="none" stroke="navy" d="M1093.01,-281.96C1139.75,-276.87 1199.21,-270.4 1241.51,-265.8"/>
+<polygon fill="navy" stroke="navy" points="1241.63,-269.31 1251.19,-264.74 1240.87,-262.35 1241.63,-269.31"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-283.6" font-family="Arial" font-size="14.00">использует</text>
+</g>
+<!-- Оборудование -->
+<g id="node3" class="node">
+<title>Оборудование</title>
+<polygon fill="lightblue" stroke="black" points="1350.79,-591.96 1241.44,-591.96 1241.44,-555.96 1350.79,-555.96 1350.79,-591.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1296.12" y="-569.76" font-family="Arial" font-size="14.00">Оборудование</text>
+</g>
+<!-- Компьютерная_сеть&#45;&gt;Оборудование -->
+<g id="edge19" class="edge">
+<title>Компьютерная_сеть-&gt;Оборудование</title>
+<path fill="none" stroke="navy" d="M1039.37,-308.2C1057.11,-323.86 1084.29,-346.3 1110.64,-361.96 1157.51,-389.82 1185.74,-370.78 1223.44,-410.16 1239.14,-426.56 1232.67,-437.03 1241.44,-457.96 1254.1,-488.18 1270.01,-522.12 1281.21,-545.44"/>
+<polygon fill="navy" stroke="navy" points="1277.99,-546.82 1285.48,-554.3 1284.29,-543.77 1277.99,-546.82"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-414.36" font-family="Arial" font-size="14.00">состоит из</text>
+</g>
+<!-- Безопасность -->
+<g id="node6" class="node">
+<title>Безопасность</title>
+<polygon fill="lightblue" stroke="black" points="1350.79,-448.96 1241.44,-448.96 1241.44,-412.96 1350.79,-412.96 1350.79,-448.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1296.12" y="-426.76" font-family="Arial" font-size="14.00">Безопасность</text>
+</g>
+<!-- Компьютерная_сеть&#45;&gt;Безопасность -->
+<g id="edge20" class="edge">
+<title>Компьютерная_сеть-&gt;Безопасность</title>
+<path fill="none" stroke="navy" d="M1092.79,-298.75C1133.72,-306.26 1184.21,-320.04 1223.44,-345.16 1246.3,-359.8 1265.58,-384.06 1278.36,-403.05"/>
+<polygon fill="navy" stroke="navy" points="1275.41,-404.93 1283.78,-411.42 1281.29,-401.13 1275.41,-404.93"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-349.36" font-family="Arial" font-size="14.00">обеспечивает</text>
+</g>
+<!-- Устройство -->
+<g id="node4" class="node">
+<title>Устройство</title>
+<polygon fill="lightblue" stroke="black" points="705.34,-146.96 611.55,-146.96 611.55,-110.96 705.34,-110.96 705.34,-146.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-124.76" font-family="Arial" font-size="14.00">Устройство</text>
+</g>
+<!-- Устройство&#45;&gt;Компьютерная_сеть -->
+<g id="edge23" class="edge">
+<title>Устройство-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M705.8,-117.63C765.06,-106.17 867.06,-97.09 926.38,-152.16 962.95,-186.1 912.66,-224.46 944.38,-262.96 944.63,-263.27 944.89,-263.57 945.15,-263.86"/>
+<polygon fill="navy" stroke="navy" points="942.68,-266.35 952.41,-270.53 947.41,-261.19 942.68,-266.35"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-156.36" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Протокол -->
+<g id="node5" class="node">
+<title>Протокол</title>
+<polygon fill="lightblue" stroke="black" points="697.56,-253.96 619.33,-253.96 619.33,-217.96 697.56,-217.96 697.56,-253.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-231.76" font-family="Arial" font-size="14.00">Протокол</text>
+</g>
+<!-- Протокол&#45;&gt;Компьютерная_сеть -->
+<g id="edge26" class="edge">
+<title>Протокол-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M697.88,-236.43C750.13,-237.71 846.25,-242.39 926.38,-259.16 937.17,-261.42 948.46,-264.56 959.26,-267.98"/>
+<polygon fill="navy" stroke="navy" points="957.84,-271.2 968.43,-271 960.03,-264.55 957.84,-271.2"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-263.36" font-family="Arial" font-size="14.00">используется в</text>
+</g>
+<!-- Тестирование -->
+<g id="node7" class="node">
+<title>Тестирование</title>
+<polygon fill="lightblue" stroke="black" points="713.12,-39.96 603.77,-39.96 603.77,-3.96 713.12,-3.96 713.12,-39.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-17.76" font-family="Arial" font-size="14.00">Тестирование</text>
+</g>
+<!-- Тестирование&#45;&gt;Компьютерная_сеть -->
+<g id="edge21" class="edge">
+<title>Тестирование-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M713.38,-8.57C774.09,2.94 871.4,10.05 926.38,-45.16 960.65,-79.58 915,-224.29 944.38,-262.96 944.54,-263.16 944.69,-263.37 944.85,-263.56"/>
+<polygon fill="navy" stroke="navy" points="942.26,-265.93 951.83,-270.48 947.19,-260.96 942.26,-265.93"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-49.36" font-family="Arial" font-size="14.00">проверяет после</text>
+</g>
+<!-- Требования -->
+<g id="node8" class="node">
+<title>Требования</title>
+<polygon fill="lightblue" stroke="black" points="705.34,-468.96 611.55,-468.96 611.55,-432.96 705.34,-432.96 705.34,-468.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-446.76" font-family="Arial" font-size="14.00">Требования</text>
+</g>
+<!-- Требования&#45;&gt;Компьютерная_сеть -->
+<g id="edge22" class="edge">
+<title>Требования-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M705.81,-452.69C761.92,-452.7 857.44,-445.89 926.38,-404.96 961.19,-384.3 987.9,-344.98 1003.15,-318.13"/>
+<polygon fill="navy" stroke="navy" points="1006.15,-319.94 1007.88,-309.49 1000.01,-316.58 1006.15,-319.94"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-452.74" font-family="Arial" font-size="14.00">определяют</text>
+</g>
+<!-- Локальная_сеть_LAN -->
+<g id="node9" class="node">
+<title>Локальная_сеть_LAN</title>
+<polygon fill="lightblue" stroke="black" points="738.41,-414.96 578.48,-414.96 578.48,-378.96 738.41,-378.96 738.41,-414.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-392.76" font-family="Arial" font-size="14.00">Локальная_сеть_LAN</text>
+</g>
+<!-- Локальная_сеть_LAN&#45;&gt;Компьютерная_сеть -->
+<g id="edge1" class="edge">
+<title>Локальная_сеть_LAN-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M738.91,-389.41C793.11,-382.44 865.79,-369.46 926.38,-345.96 946.65,-338.11 967.43,-325.73 984.02,-314.61"/>
+<polygon fill="navy" stroke="navy" points="985.76,-317.66 992.02,-309.1 981.8,-311.89 985.76,-317.66"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-388.1" font-family="Arial" font-size="14.00">является наследником</text>
+</g>
+<!-- Беспроводная_сеть_WLAN -->
+<g id="node10" class="node">
+<title>Беспроводная_сеть_WLAN</title>
+<polygon fill="lightblue" stroke="black" points="756.69,-360.96 560.2,-360.96 560.2,-324.96 756.69,-324.96 756.69,-360.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-338.76" font-family="Arial" font-size="14.00">Беспроводная_сеть_WLAN</text>
+</g>
+<!-- Беспроводная_сеть_WLAN&#45;&gt;Компьютерная_сеть -->
+<g id="edge2" class="edge">
+<title>Беспроводная_сеть_WLAN-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M757.09,-328.87C807.64,-321.53 870.34,-312.36 926.38,-303.96 928.43,-303.66 930.51,-303.34 932.6,-303.03"/>
+<polygon fill="navy" stroke="navy" points="933.05,-306.5 942.41,-301.54 932,-299.58 933.05,-306.5"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-329.57" font-family="Arial" font-size="14.00">является наследником</text>
+</g>
+<!-- Звезда -->
+<g id="node11" class="node">
+<title>Звезда</title>
+<polygon fill="lightblue" stroke="black" points="1049.85,-253.96 987.17,-253.96 987.17,-217.96 1049.85,-217.96 1049.85,-253.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1018.51" y="-231.76" font-family="Arial" font-size="14.00">Звезда</text>
+</g>
+<!-- Звезда&#45;&gt;Топология -->
+<g id="edge3" class="edge">
+<title>Звезда-&gt;Топология</title>
+<path fill="none" stroke="navy" d="M1050.06,-235.51C1090.06,-235.31 1162.3,-236.26 1223.44,-244.16 1229.44,-244.94 1235.68,-245.97 1241.87,-247.14"/>
+<polygon fill="navy" stroke="navy" points="1240.91,-250.51 1251.4,-249.06 1242.29,-243.65 1240.91,-250.51"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-248.36" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Роутер -->
+<g id="node12" class="node">
+<title>Роутер</title>
+<polygon fill="lightblue" stroke="black" points="1049.85,-676.96 987.17,-676.96 987.17,-640.96 1049.85,-640.96 1049.85,-676.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1018.51" y="-654.76" font-family="Arial" font-size="14.00">Роутер</text>
+</g>
+<!-- Роутер&#45;&gt;Оборудование -->
+<g id="edge4" class="edge">
+<title>Роутер-&gt;Оборудование</title>
+<path fill="none" stroke="navy" d="M1050.06,-655.35C1090.69,-649.88 1164.26,-637.65 1223.44,-614.96 1235,-610.53 1246.93,-604.42 1257.65,-598.27"/>
+<polygon fill="navy" stroke="navy" points="1259.39,-601.3 1266.21,-593.19 1255.82,-595.28 1259.39,-601.3"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-648.99" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Коммутатор -->
+<g id="node13" class="node">
+<title>Коммутатор</title>
+<polygon fill="lightblue" stroke="black" points="1065.41,-622.96 971.62,-622.96 971.62,-586.96 1065.41,-586.96 1065.41,-622.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1018.51" y="-600.76" font-family="Arial" font-size="14.00">Коммутатор</text>
+</g>
+<!-- Коммутатор&#45;&gt;Оборудование -->
+<g id="edge5" class="edge">
+<title>Коммутатор-&gt;Оборудование</title>
+<path fill="none" stroke="navy" d="M1065.64,-599.77C1110.66,-594.71 1179.57,-586.96 1230.13,-581.27"/>
+<polygon fill="navy" stroke="navy" points="1230.22,-584.78 1239.76,-580.19 1229.43,-577.83 1230.22,-584.78"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-598.25" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Кабель -->
+<g id="node14" class="node">
+<title>Кабель</title>
+<polygon fill="lightblue" stroke="black" points="1049.85,-568.96 987.17,-568.96 987.17,-532.96 1049.85,-532.96 1049.85,-568.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1018.51" y="-546.76" font-family="Arial" font-size="14.00">Кабель</text>
+</g>
+<!-- Кабель&#45;&gt;Оборудование -->
+<g id="edge6" class="edge">
+<title>Кабель-&gt;Оборудование</title>
+<path fill="none" stroke="navy" d="M1050.04,-550.64C1090.03,-550.57 1162.24,-551.67 1223.44,-559.16 1225.62,-559.43 1227.82,-559.73 1230.05,-560.05"/>
+<polygon fill="navy" stroke="navy" points="1229.34,-563.48 1239.77,-561.62 1230.45,-556.57 1229.34,-563.48"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-563.36" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Компьютер -->
+<g id="node15" class="node">
+<title>Компьютер</title>
+<polygon fill="lightblue" stroke="black" points="339.66,-185.96 253.65,-185.96 253.65,-149.96 339.66,-149.96 339.66,-185.96"/>
+<text xml:space="preserve" text-anchor="middle" x="296.65" y="-163.76" font-family="Arial" font-size="14.00">Компьютер</text>
+</g>
+<!-- Компьютер&#45;&gt;Компьютерная_сеть -->
+<g id="edge24" class="edge">
+<title>Компьютер-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M340.04,-169.11C437.87,-171.94 677.12,-179.92 756.69,-192.16 833.68,-204.01 862.89,-190.85 926.38,-235.96 938.14,-244.32 933.06,-254.03 944.38,-262.96 945.52,-263.86 946.69,-264.73 947.88,-265.57"/>
+<polygon fill="navy" stroke="navy" points="945.88,-268.45 956.23,-270.71 949.55,-262.49 945.88,-268.45"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-196.36" font-family="Arial" font-size="14.00">подключён к</text>
+</g>
+<!-- Компьютер&#45;&gt;Устройство -->
+<g id="edge7" class="edge">
+<title>Компьютер-&gt;Устройство</title>
+<path fill="none" stroke="navy" d="M340.07,-159.99C355.86,-157.22 373.96,-154.29 390.5,-152.16 462.5,-142.92 545.91,-136.33 600.07,-132.59"/>
+<polygon fill="navy" stroke="navy" points="600.25,-136.08 609.99,-131.91 599.78,-129.1 600.25,-136.08"/>
+<text xml:space="preserve" text-anchor="middle" x="466.35" y="-156.36" font-family="Arial" font-size="14.00">является наследником</text>
+</g>
+<!-- Сервер -->
+<g id="node16" class="node">
+<title>Сервер</title>
+<polygon fill="lightblue" stroke="black" points="327.99,-110.96 265.32,-110.96 265.32,-74.96 327.99,-74.96 327.99,-110.96"/>
+<text xml:space="preserve" text-anchor="middle" x="296.65" y="-88.76" font-family="Arial" font-size="14.00">Сервер</text>
+</g>
+<!-- Сервер&#45;&gt;Компьютерная_сеть -->
+<g id="edge25" class="edge">
+<title>Сервер-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M328.12,-91.13C448.15,-84.24 883.89,-62.35 926.38,-104.96 976.29,-155.01 900.76,-207.36 944.38,-262.96 944.63,-263.27 944.87,-263.58 945.12,-263.88"/>
+<polygon fill="navy" stroke="navy" points="942.59,-266.3 952.25,-270.66 947.42,-261.23 942.59,-266.3"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-85.32" font-family="Arial" font-size="14.00">подключён к</text>
+</g>
+<!-- Сервер&#45;&gt;Устройство -->
+<g id="edge8" class="edge">
+<title>Сервер-&gt;Устройство</title>
+<path fill="none" stroke="navy" d="M328.23,-94.46C374.59,-96.91 465.43,-102.39 542.2,-111.16 561.1,-113.32 581.66,-116.3 600.11,-119.19"/>
+<polygon fill="navy" stroke="navy" points="599.37,-122.62 609.8,-120.74 600.48,-115.71 599.37,-122.62"/>
+<text xml:space="preserve" text-anchor="middle" x="466.35" y="-115.36" font-family="Arial" font-size="14.00">является наследником</text>
+</g>
+<!-- TCP_IP -->
+<g id="node17" class="node">
+<title>TCP_IP</title>
+<polygon fill="lightblue" stroke="black" points="329.16,-301.96 264.15,-301.96 264.15,-265.96 329.16,-265.96 329.16,-301.96"/>
+<text xml:space="preserve" text-anchor="middle" x="296.65" y="-279.76" font-family="Arial" font-size="14.00">TCP_IP</text>
+</g>
+<!-- TCP_IP&#45;&gt;Компьютерная_сеть -->
+<g id="edge27" class="edge">
+<title>TCP_IP-&gt;Компьютерная_сеть</title>
+<path fill="none" stroke="navy" d="M329.51,-284.23C434.74,-285.11 773.51,-287.93 932.99,-289.26"/>
+<polygon fill="navy" stroke="navy" points="932.62,-292.75 942.65,-289.34 932.68,-285.76 932.62,-292.75"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-291.95" font-family="Arial" font-size="14.00">управляет обменом</text>
+</g>
+<!-- TCP_IP&#45;&gt;Протокол -->
+<g id="edge9" class="edge">
+<title>TCP_IP-&gt;Протокол</title>
+<path fill="none" stroke="navy" d="M329.57,-273.96C347.34,-268.77 369.96,-262.77 390.5,-259.16 465.63,-245.97 554.03,-240.16 607.88,-237.69"/>
+<polygon fill="navy" stroke="navy" points="607.81,-241.19 617.64,-237.26 607.5,-234.2 607.81,-241.19"/>
+<text xml:space="preserve" text-anchor="middle" x="466.35" y="-263.36" font-family="Arial" font-size="14.00">является экземпляром</text>
+</g>
+<!-- DHCP -->
+<g id="node18" class="node">
+<title>DHCP</title>
+<polygon fill="lightblue" stroke="black" points="59.95,-275.96 4.28,-275.96 4.28,-239.96 59.95,-239.96 59.95,-275.96"/>
+<text xml:space="preserve" text-anchor="middle" x="32.11" y="-253.76" font-family="Arial" font-size="14.00">DHCP</text>
+</g>
+<!-- DHCP&#45;&gt;Протокол -->
+<g id="edge10" class="edge">
+<title>DHCP-&gt;Протокол</title>
+<path fill="none" stroke="navy" d="M60.41,-254.64C96.9,-250.37 163.6,-243.14 220.81,-240.16 360.79,-232.86 526.35,-233.92 607.51,-235.07"/>
+<polygon fill="navy" stroke="navy" points="607.3,-238.56 617.35,-235.21 607.4,-231.56 607.3,-238.56"/>
+<text xml:space="preserve" text-anchor="middle" x="296.65" y="-244.36" font-family="Arial" font-size="14.00">является экземпляром</text>
+</g>
+<!-- DHCP&#45;&gt;TCP_IP -->
+<g id="edge28" class="edge">
+<title>DHCP-&gt;TCP_IP</title>
+<path fill="none" stroke="navy" d="M60.22,-260.65C105.75,-265.16 197.93,-274.28 252.46,-279.69"/>
+<polygon fill="navy" stroke="navy" points="252.02,-283.16 262.32,-280.66 252.71,-276.19 252.02,-283.16"/>
+<text xml:space="preserve" text-anchor="middle" x="142.52" y="-278.26" font-family="Arial" font-size="14.00">распределяет IP</text>
+</g>
+<!-- Firewall -->
+<g id="node19" class="node">
+<title>Firewall</title>
+<polygon fill="lightblue" stroke="black" points="64.23,-348.96 0,-348.96 0,-312.96 64.23,-312.96 64.23,-348.96"/>
+<text xml:space="preserve" text-anchor="middle" x="32.11" y="-326.76" font-family="Arial" font-size="14.00">Firewall</text>
+</g>
+<!-- Firewall&#45;&gt;Безопасность -->
+<g id="edge11" class="edge">
+<title>Firewall-&gt;Безопасность</title>
+<path fill="none" stroke="navy" d="M47.14,-349.25C83.13,-393.93 183.83,-504.96 295.65,-504.96 295.65,-504.96 295.65,-504.96 1019.51,-504.96 1099.63,-504.96 1188.51,-475.43 1243.11,-453.68"/>
+<polygon fill="navy" stroke="navy" points="1244.2,-457.01 1252.15,-450.01 1241.57,-450.53 1244.2,-457.01"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-509.16" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Firewall&#45;&gt;TCP_IP -->
+<g id="edge29" class="edge">
+<title>Firewall-&gt;TCP_IP</title>
+<path fill="none" stroke="navy" d="M64.52,-325.34C111.44,-316.94 199.95,-301.1 252.78,-291.64"/>
+<polygon fill="navy" stroke="navy" points="253.08,-295.14 262.31,-289.93 251.85,-288.25 253.08,-295.14"/>
+<text xml:space="preserve" text-anchor="middle" x="142.52" y="-326.17" font-family="Arial" font-size="14.00">фильтрует трафик</text>
+</g>
+<!-- Шифрование_WPA3 -->
+<g id="node20" class="node">
+<title>Шифрование_WPA3</title>
+<polygon fill="lightblue" stroke="black" points="1089.14,-448.96 947.88,-448.96 947.88,-412.96 1089.14,-412.96 1089.14,-448.96"/>
+<text xml:space="preserve" text-anchor="middle" x="1018.51" y="-426.76" font-family="Arial" font-size="14.00">Шифрование_WPA3</text>
+</g>
+<!-- Шифрование_WPA3&#45;&gt;Безопасность -->
+<g id="edge12" class="edge">
+<title>Шифрование_WPA3-&gt;Безопасность</title>
+<path fill="none" stroke="navy" d="M1089.41,-430.96C1132.65,-430.96 1187.78,-430.96 1230.09,-430.96"/>
+<polygon fill="navy" stroke="navy" points="1229.86,-434.46 1239.86,-430.96 1229.86,-427.46 1229.86,-434.46"/>
+<text xml:space="preserve" text-anchor="middle" x="1167.04" y="-435.16" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Ping -->
+<g id="node21" class="node">
+<title>Ping</title>
+<polygon fill="lightblue" stroke="black" points="323.65,-39.96 269.65,-39.96 269.65,-3.96 323.65,-3.96 323.65,-39.96"/>
+<text xml:space="preserve" text-anchor="middle" x="296.65" y="-17.76" font-family="Arial" font-size="14.00">Ping</text>
+</g>
+<!-- Ping&#45;&gt;Тестирование -->
+<g id="edge13" class="edge">
+<title>Ping-&gt;Тестирование</title>
+<path fill="none" stroke="navy" d="M324.11,-21.96C380.1,-21.96 512.01,-21.96 592.08,-21.96"/>
+<polygon fill="navy" stroke="navy" points="591.99,-25.46 601.99,-21.96 591.99,-18.46 591.99,-25.46"/>
+<text xml:space="preserve" text-anchor="middle" x="466.35" y="-26.16" font-family="Arial" font-size="14.00">является частью</text>
+</g>
+<!-- Бюджет -->
+<g id="node22" class="node">
+<title>Бюджет</title>
+<polygon fill="lightblue" stroke="black" points="327.99,-418.96 265.32,-418.96 265.32,-382.96 327.99,-382.96 327.99,-418.96"/>
+<text xml:space="preserve" text-anchor="middle" x="296.65" y="-396.76" font-family="Arial" font-size="14.00">Бюджет</text>
+</g>
+<!-- Бюджет&#45;&gt;Требования -->
+<g id="edge14" class="edge">
+<title>Бюджет-&gt;Требования</title>
+<path fill="none" stroke="navy" d="M328.22,-404.27C374.57,-409.39 465.39,-419.83 542.2,-431.16 561.08,-433.95 581.63,-437.36 600.08,-440.56"/>
+<polygon fill="navy" stroke="navy" points="599.32,-443.98 609.77,-442.25 600.52,-437.08 599.32,-443.98"/>
+<text xml:space="preserve" text-anchor="middle" x="466.35" y="-435.36" font-family="Arial" font-size="14.00">является атрибутом</text>
+</g>
+<!-- Площадь -->
+<g id="node23" class="node">
+<title>Площадь</title>
+<polygon fill="lightblue" stroke="black" points="331.88,-472.96 261.43,-472.96 261.43,-436.96 331.88,-436.96 331.88,-472.96"/>
+<text xml:space="preserve" text-anchor="middle" x="296.65" y="-450.76" font-family="Arial" font-size="14.00">Площадь</text>
+</g>
+<!-- Площадь&#45;&gt;Требования -->
+<g id="edge15" class="edge">
+<title>Площадь-&gt;Требования</title>
+<path fill="none" stroke="navy" d="M332.15,-454.58C394.05,-453.89 524.55,-452.44 600.09,-451.6"/>
+<polygon fill="navy" stroke="navy" points="599.8,-455.1 609.76,-451.49 599.72,-448.1 599.8,-455.1"/>
+<text xml:space="preserve" text-anchor="middle" x="466.35" y="-458.09" font-family="Arial" font-size="14.00">является атрибутом</text>
+</g>
+<!-- TP_Link_Archer_C6 -->
+<g id="node24" class="node">
+<title>TP_Link_Archer_C6</title>
+<polygon fill="lightgreen" stroke="black" points="729.47,-676.96 587.41,-676.96 587.41,-640.96 729.47,-640.96 729.47,-676.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-654.76" font-family="Arial" font-size="14.00">TP_Link_Archer_C6</text>
+</g>
+<!-- TP_Link_Archer_C6&#45;&gt;Роутер -->
+<g id="edge16" class="edge">
+<title>TP_Link_Archer_C6-&gt;Роутер</title>
+<path fill="none" stroke="navy" d="M729.76,-658.96C802.89,-658.96 914.97,-658.96 975.4,-658.96"/>
+<polygon fill="navy" stroke="navy" points="975.26,-662.46 985.26,-658.96 975.26,-655.46 975.26,-662.46"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-663.16" font-family="Arial" font-size="14.00">является экземпляром</text>
+</g>
+<!-- TP_Link_TL_SG1016D -->
+<g id="node25" class="node">
+<title>TP_Link_TL_SG1016D</title>
+<polygon fill="lightgreen" stroke="black" points="738.82,-622.96 578.07,-622.96 578.07,-586.96 738.82,-586.96 738.82,-622.96"/>
+<text xml:space="preserve" text-anchor="middle" x="658.44" y="-600.76" font-family="Arial" font-size="14.00">TP_Link_TL_SG1016D</text>
+</g>
+<!-- TP_Link_TL_SG1016D&#45;&gt;Коммутатор -->
+<g id="edge17" class="edge">
+<title>TP_Link_TL_SG1016D-&gt;Коммутатор</title>
+<path fill="none" stroke="navy" d="M738.91,-604.96C805.74,-604.96 899.72,-604.96 959.62,-604.96"/>
+<polygon fill="navy" stroke="navy" points="959.61,-608.46 969.61,-604.96 959.61,-601.46 959.61,-608.46"/>
+<text xml:space="preserve" text-anchor="middle" x="850.54" y="-609.16" font-family="Arial" font-size="14.00">является экземпляром</text>
+</g>
+</g>
+</svg>
