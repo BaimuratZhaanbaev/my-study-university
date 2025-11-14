@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "Новый профиль",
+    "Projects": [
+      {
+        "Path": "Lab2_OOP_Cpp\\Lab2_OOP_Cpp.vcxproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]

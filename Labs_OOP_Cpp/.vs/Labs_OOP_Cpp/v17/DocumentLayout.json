@@ -1,0 +1,62 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Baika\\my-study-university\\Labs_OOP_Cpp\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{99A8F9F7-4786-4F64-AE68-BD7A785FC3E6}|Lab2_OOP_Cpp\\Lab2_OOP_Cpp.vcxproj|C:\\Users\\Baika\\my-study-university\\Labs_OOP_Cpp\\Lab2_OOP_Cpp\\Lab2_OOP_Cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{99A8F9F7-4786-4F64-AE68-BD7A785FC3E6}|Lab2_OOP_Cpp\\Lab2_OOP_Cpp.vcxproj|solutionrelative:Lab2_OOP_Cpp\\Lab2_OOP_Cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{ADA98BB1-28C3-4F95-89BF-653FF25D13AE}|Lab1_OOP_Cpp\\Lab1_OOP_Cpp.vcxproj|C:\\Users\\Baika\\my-study-university\\Labs_OOP_Cpp\\Lab1_OOP_Cpp\\Lab1_OOP_Cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{ADA98BB1-28C3-4F95-89BF-653FF25D13AE}|Lab1_OOP_Cpp\\Lab1_OOP_Cpp.vcxproj|solutionrelative:Lab1_OOP_Cpp\\Lab1_OOP_Cpp.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{116d2292-e37d-41cd-a077-ebacac4c8cc4}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Lab2_OOP_Cpp.cpp",
+              "DocumentMoniker": "C:\\Users\\Baika\\my-study-university\\Labs_OOP_Cpp\\Lab2_OOP_Cpp\\Lab2_OOP_Cpp.cpp",
+              "RelativeDocumentMoniker": "Lab2_OOP_Cpp\\Lab2_OOP_Cpp.cpp",
+              "ToolTip": "C:\\Users\\Baika\\my-study-university\\Labs_OOP_Cpp\\Lab2_OOP_Cpp\\Lab2_OOP_Cpp.cpp",
+              "RelativeToolTip": "Lab2_OOP_Cpp\\Lab2_OOP_Cpp.cpp",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-11-13T13:03:07.68Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Lab1_OOP_Cpp.cpp",
+              "DocumentMoniker": "C:\\Users\\Baika\\my-study-university\\Labs_OOP_Cpp\\Lab1_OOP_Cpp\\Lab1_OOP_Cpp.cpp",
+              "RelativeDocumentMoniker": "Lab1_OOP_Cpp\\Lab1_OOP_Cpp.cpp",
+              "ToolTip": "C:\\Users\\Baika\\my-study-university\\Labs_OOP_Cpp\\Lab1_OOP_Cpp\\Lab1_OOP_Cpp.cpp",
+              "RelativeToolTip": "Lab1_OOP_Cpp\\Lab1_OOP_Cpp.cpp",
+              "ViewState": "AgIAAAoAAAAAAAAAAAAAAB8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-11-13T21:07:38.032Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
