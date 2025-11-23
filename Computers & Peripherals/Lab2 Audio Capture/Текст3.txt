@@ -1,0 +1,226 @@
+// Лабораторная работа №3 — XAudio2 WAV Player
+// Положи test.wav в папку Debug/Release или введи полный путь
+
+#include <windows.h>
+#include <xaudio2.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+
+#pragma comment(lib, "xaudio2.lib")
+
+// Универсальная загрузка WAV (работает со всеми файлами)
+bool LoadWAV(const std::string& filename, WAVEFORMATEX& wfx, std::vector<BYTE>& audioData)
+{
+    setlocale(LC_ALL, "RUS");
+        
+    std::ifstream file(filename, std::ios::binary);
+    if (!file.is_open())
+    {
+        std::cerr << "Ошибка: не удалось открыть файл: " << filename << "\n";
+        return false;
+    }
+
+    char chunk[4] = { 0 };
+    file.read(chunk, 4);
+    if (std::string(chunk, 4) != "RIFF")
+    {
+        std::cerr << "Это не WAV-файл (нет RIFF)\n";
+        return false;
+    }
+    file.ignore(4); // размер файла - 8
+
+    file.read(chunk, 4);
+    if (std::string(chunk, 4) != "WAVE")
+    {
+        std::cerr << "Это не WAV-файл (нет WAVE)\n";
+        return false;
+    }
+
+    // Поиск fmt 
+    bool foundFmt = false;
+    while (!foundFmt && file.good())
+    {
+        file.read(chunk, 4);
+        if (file.eof()) break;
+
+        UINT32 size = 0;
+        file.read(reinterpret_cast<char*>(&size), 4);
+
+        if (std::string(chunk, 4) == "fmt ")
+        {
+            file.read(reinterpret_cast<char*>(&wfx.wFormatTag), 2);
+            file.read(reinterpret_cast<char*>(&wfx.nChannels), 2);
+            file.read(reinterpret_cast<char*>(&wfx.nSamplesPerSec), 4);
+            file.read(reinterpret_cast<char*>(&wfx.nAvgBytesPerSec), 4);
+            file.read(reinterpret_cast<char*>(&wfx.nBlockAlign), 2);
+            file.read(reinterpret_cast<char*>(&wfx.wBitsPerSample), 2);
+
+            if (size > 16)
+                file.ignore(size - 16);
+
+            wfx.cbSize = 0;
+            foundFmt = true;
+        }
+        else
+        {
+            file.ignore(size);
+        }
+    }
+
+    if (!foundFmt)
+    {
+        std::cerr << "Не найден chunk fmt \n";
+        return false;
+    }
+
+    // Поиск data
+    bool foundData = false;
+    while (!foundData && file.good())
+    {
+        file.read(chunk, 4);
+        if (file.eof()) break;
+
+        UINT32 size = 0;
+        file.read(reinterpret_cast<char*>(&size), 4);
+
+        if (std::string(chunk, 4) == "data")
+        {
+            audioData.resize(size);
+            file.read(reinterpret_cast<char*>(audioData.data()), size);
+            if (file.gcount() != size)
+            {
+                std::cerr << "Ошибка чтения аудиоданных\n";
+                return false;
+            }
+            foundData = true;
+        }
+        else
+        {
+            file.ignore(size);
+        }
+    }
+
+    if (!foundData)
+    {
+        std::cerr << "Не найден chunk data\n";
+        return false;
+    }
+
+    std::cout << "WAV загружен: " << audioData.size() << " байт, "
+        << wfx.nSamplesPerSec << " Hz, " << wfx.nChannels << " каналов\n";
+    return true;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    std::cout << "=== Лабораторная работа №3 — XAudio2 WAV Player ===\n";
+    std::cout << "Положи test.wav в папку с exe (Debug/Release) или введи полный путь\n\n";
+
+    // Попробуем найти test.wav рядом с программой
+    std::string filename = "test.wav";
+    std::ifstream test(filename, std::ios::binary);
+    if (!test.good())
+    {
+        std::cout << "Файл test.wav не найден рядом с программой.\n";
+        std::cout << "Введите полный путь к WAV-файлу: ";
+        std::getline(std::cin, filename);
+    }
+    else
+    {
+        test.close();
+        std::cout << "Найден test.wav рядом с программой — используем его.\n";
+    }
+
+    // Инициализация COM и XAudio2
+    HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка инициализации COM\n";
+        return -1;
+    }
+
+    IXAudio2* pXAudio2 = nullptr;
+    hr = XAudio2Create(&pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка XAudio2Create\n";
+        CoUninitialize();
+        return -1;
+    }
+
+    IXAudio2MasteringVoice* pMasterVoice = nullptr;
+    hr = pXAudio2->CreateMasteringVoice(&pMasterVoice);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка CreateMasteringVoice\n";
+        pXAudio2->Release();
+        CoUninitialize();
+        return -1;
+    }
+
+    // Загрузка WAV
+    WAVEFORMATEX wfx = { 0 };
+    std::vector<BYTE> audioData;
+    if (!LoadWAV(filename, wfx, audioData))
+    {
+        pMasterVoice->DestroyVoice();
+        pXAudio2->Release();
+        CoUninitialize();
+        system("pause");
+        return -1;
+    }
+
+    // Создание Source Voice
+    IXAudio2SourceVoice* pSourceVoice = nullptr;
+    hr = pXAudio2->CreateSourceVoice(&pSourceVoice, &wfx);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка CreateSourceVoice\n";
+        pMasterVoice->DestroyVoice();
+        pXAudio2->Release();
+        CoUninitialize();
+        return -1;
+    }
+
+    // Передача данных
+    XAUDIO2_BUFFER buffer = { 0 };
+    buffer.AudioBytes = static_cast<UINT32>(audioData.size());
+    buffer.pAudioData = audioData.data();
+    buffer.Flags = XAUDIO2_END_OF_STREAM;
+
+    hr = pSourceVoice->SubmitSourceBuffer(&buffer);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка SubmitSourceBuffer\n";
+        pSourceVoice->DestroyVoice();
+        pMasterVoice->DestroyVoice();
+        pXAudio2->Release();
+        CoUninitialize();
+        return -1;
+    }
+
+    // Воспроизведение
+    std::cout << "Воспроизведение...\n";
+    pSourceVoice->Start(0);
+
+    // Ожидание окончания
+    XAUDIO2_VOICE_STATE state;
+    do
+    {
+        pSourceVoice->GetState(&state);
+        Sleep(50);
+    } while (state.BuffersQueued > 0);
+
+    // Очистка
+    pSourceVoice->DestroyVoice();
+    pMasterVoice->DestroyVoice();
+    pXAudio2->Release();
+    CoUninitialize();
+
+    std::cout << "\nВоспроизведение завершено! Нажми Enter...\n";
+    std::cin.get();
+    return 0;
+}

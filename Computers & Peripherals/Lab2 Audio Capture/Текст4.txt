@@ -1,0 +1,267 @@
+﻿﻿// Лабораторная работа №3 — XAudio2 WAV Player с дополнительными функциями (Задание 3)
+// Поддержка одновременного проигрывания нескольких файлов и изменения высоты тона
+// Положи test1.wav и test2.wav в папку Debug/Release или введи полные пути
+
+#include <windows.h>
+#include <xaudio2.h>
+#include <iostream>
+#include <string>
+#include <vector>
+#include <fstream>
+#include <algorithm> // для std::max
+
+#pragma comment(lib, "xaudio2.lib")
+
+// Универсальная загрузка WAV (работает со всеми файлами)
+bool LoadWAV(const std::string& filename, WAVEFORMATEX& wfx, std::vector<BYTE>& audioData)
+{
+    setlocale(LC_ALL, "RUS");
+
+    std::ifstream file(filename, std::ios::binary);
+    if (!file.is_open())
+    {
+        std::cerr << "Ошибка: не удалось открыть файл: " << filename << "\n";
+        return false;
+    }
+
+    char chunk[4] = { 0 };
+    file.read(chunk, 4);
+    if (std::string(chunk, 4) != "RIFF")
+    {
+        std::cerr << "Это не WAV-файл (нет RIFF)\n";
+        return false;
+    }
+    file.ignore(4); // размер файла - 8
+
+    file.read(chunk, 4);
+    if (std::string(chunk, 4) != "WAVE")
+    {
+        std::cerr << "Это не WAV-файл (нет WAVE)\n";
+        return false;
+    }
+
+    // Поиск fmt 
+    bool foundFmt = false;
+    while (!foundFmt && file.good())
+    {
+        file.read(chunk, 4);
+        if (file.eof()) break;
+
+        UINT32 size = 0;
+        file.read(reinterpret_cast<char*>(&size), 4);
+
+        if (std::string(chunk, 4) == "fmt ")
+        {
+            file.read(reinterpret_cast<char*>(&wfx.wFormatTag), 2);
+            file.read(reinterpret_cast<char*>(&wfx.nChannels), 2);
+            file.read(reinterpret_cast<char*>(&wfx.nSamplesPerSec), 4);
+            file.read(reinterpret_cast<char*>(&wfx.nAvgBytesPerSec), 4);
+            file.read(reinterpret_cast<char*>(&wfx.nBlockAlign), 2);
+            file.read(reinterpret_cast<char*>(&wfx.wBitsPerSample), 2);
+
+            if (size > 16)
+                file.ignore(size - 16);
+
+            wfx.cbSize = 0;
+            foundFmt = true;
+        }
+        else
+        {
+            file.ignore(size);
+        }
+    }
+
+    if (!foundFmt)
+    {
+        std::cerr << "Не найден chunk fmt \n";
+        return false;
+    }
+
+    // Поиск data
+    bool foundData = false;
+    while (!foundData && file.good())
+    {
+        file.read(chunk, 4);
+        if (file.eof()) break;
+
+        UINT32 size = 0;
+        file.read(reinterpret_cast<char*>(&size), 4);
+
+        if (std::string(chunk, 4) == "data")
+        {
+            audioData.resize(size);
+            file.read(reinterpret_cast<char*>(audioData.data()), size);
+            if (file.gcount() != size)
+            {
+                std::cerr << "Ошибка чтения аудиоданных\n";
+                return false;
+            }
+            foundData = true;
+        }
+        else
+        {
+            file.ignore(size);
+        }
+    }
+
+    if (!foundData)
+    {
+        std::cerr << "Не найден chunk data\n";
+        return false;
+    }
+
+    std::cout << "WAV загружен: " << audioData.size() << " байт, "
+        << wfx.nSamplesPerSec << " Hz, " << wfx.nChannels << " каналов\n";
+    return true;
+}
+
+int main()
+{
+    setlocale(LC_ALL, "RUS");
+    std::cout << "=== Лабораторная работа №3 — XAudio2 WAV Player с доп. функциями (Задание 3) ===\n";
+    std::cout << "Поддержка одновременного проигрывания нескольких файлов и изменения высоты тона.\n";
+    std::cout << "Положи test1.wav и test2.wav в папку с exe или введи полные пути.\n\n";
+
+    // Ввод путей к файлам
+    std::vector<std::string> filenames(2);
+    std::vector<std::string> defaultFiles = { "test1.wav", "test2.wav" };
+
+    for (int i = 0; i < 2; ++i) {
+        std::ifstream test(defaultFiles[i], std::ios::binary);
+        if (test.good()) {
+            test.close();
+            filenames[i] = defaultFiles[i];
+            std::cout << "Найден " << defaultFiles[i] << " — используем его.\n";
+        } else {
+            std::cout << "Введите полный путь к WAV-файлу " << (i + 1) << " (или Enter для пропуска): ";
+            std::getline(std::cin, filenames[i]);
+        }
+    }
+
+    // Инициализация COM и XAudio2
+    HRESULT hr = CoInitializeEx(nullptr, COINIT_MULTITHREADED);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка инициализации COM\n";
+        return -1;
+    }
+
+    IXAudio2* pXAudio2 = nullptr;
+    hr = XAudio2Create(&pXAudio2, 0, XAUDIO2_DEFAULT_PROCESSOR);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка XAudio2Create\n";
+        CoUninitialize();
+        return -1;
+    }
+
+    IXAudio2MasteringVoice* pMasterVoice = nullptr;
+    hr = pXAudio2->CreateMasteringVoice(&pMasterVoice);
+    if (FAILED(hr))
+    {
+        std::cerr << "Ошибка CreateMasteringVoice\n";
+        pXAudio2->Release();
+        CoUninitialize();
+        return -1;
+    }
+
+    // Загрузка WAV-файлов
+    std::vector<WAVEFORMATEX> wfxs(2);
+    std::vector<std::vector<BYTE>> audioDatas(2);
+    std::vector<IXAudio2SourceVoice*> sourceVoices;
+
+    bool atLeastOneLoaded = false;
+    for (int i = 0; i < 2; ++i) {
+        if (!filenames[i].empty()) {
+            if (LoadWAV(filenames[i], wfxs[i], audioDatas[i])) {
+                atLeastOneLoaded = true;
+            } else {
+                filenames[i].clear(); // Пропустить неудачный файл
+            }
+        }
+    }
+
+    if (!atLeastOneLoaded) {
+        std::cerr << "Не удалось загрузить ни один файл\n";
+        pMasterVoice->DestroyVoice();
+        pXAudio2->Release();
+        CoUninitialize();
+        return -1;
+    }
+
+    // Создание Source Voices
+    for (int i = 0; i < 2; ++i) {
+        if (!filenames[i].empty()) {
+            IXAudio2SourceVoice* pSourceVoice = nullptr;
+            hr = pXAudio2->CreateSourceVoice(&pSourceVoice, &wfxs[i]);
+            if (FAILED(hr)) {
+                std::cerr << "Ошибка CreateSourceVoice для файла " << (i + 1) << "\n";
+                // Очистка предыдущих
+                for (auto voice : sourceVoices) voice->DestroyVoice();
+                pMasterVoice->DestroyVoice();
+                pXAudio2->Release();
+                CoUninitialize();
+                return -1;
+            }
+
+            // Дополнительная функция: Изменение высоты тона для второго файла (если есть)
+            if (i == 1) {
+                pSourceVoice->SetFrequencyRatio(1.5f); // Увеличиваем высоту тона на 50%
+                std::cout << "Применено изменение высоты тона для файла 2.\n";
+            }
+
+            sourceVoices.push_back(pSourceVoice);
+        }
+    }
+
+    // Передача данных и запуск
+    int voiceIndex = 0;
+    for (int i = 0; i < 2; ++i) {
+        if (!filenames[i].empty()) {
+            XAUDIO2_BUFFER buffer = { 0 };
+            buffer.AudioBytes = static_cast<UINT32>(audioDatas[i].size());
+            buffer.pAudioData = audioDatas[i].data();
+            buffer.Flags = XAUDIO2_END_OF_STREAM;
+
+            hr = sourceVoices[voiceIndex]->SubmitSourceBuffer(&buffer);
+            if (FAILED(hr))
+            {
+                std::cerr << "Ошибка SubmitSourceBuffer для файла " << (i + 1) << "\n";
+                for (auto voice : sourceVoices) voice->DestroyVoice();
+                pMasterVoice->DestroyVoice();
+                pXAudio2->Release();
+                CoUninitialize();
+                return -1;
+            }
+
+            std::cout << "Воспроизведение файла " << (i + 1) << "...\n";
+            sourceVoices[voiceIndex]->Start(0);
+            ++voiceIndex;
+        }
+    }
+
+    // Ожидание окончания всех голосов
+    bool allDone = false;
+    while (!allDone) {
+        allDone = true;
+        for (auto voice : sourceVoices) {
+            XAUDIO2_VOICE_STATE state;
+            voice->GetState(&state);
+            if (state.BuffersQueued > 0) {
+                allDone = false;
+                break;
+            }
+        }
+        Sleep(50);
+    }
+
+    // Очистка
+    for (auto voice : sourceVoices) voice->DestroyVoice();
+    pMasterVoice->DestroyVoice();
+    pXAudio2->Release();
+    CoUninitialize();
+
+    std::cout << "\nВоспроизведение завершено! Нажми Enter...\n";
+    std::cin.get();
+    return 0;
+}

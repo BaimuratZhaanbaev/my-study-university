@@ -1,0 +1,61 @@
+#define MINIAUDIO_IMPLEMENTATION
+#include "miniaudio.h"
+#include <stdio.h>
+#include <string.h>  // Для memcpy
+
+#define RECORD_DURATION 10  // Длительность записи в секундах (простое изменение)
+
+void data_callback(ma_device* pDevice, void* pOutput, const void* pInput, ma_uint32 frameCount)
+{
+    // Пишем данные в энкодер (pUserData — это указатель на ma_encoder)
+    ma_encoder* pEncoder = (ma_encoder*)pDevice->pUserData;
+    ma_encoder_write_pcm_frames(pEncoder, pInput, frameCount, NULL);
+}
+
+int main(int argc, char** argv)
+{
+    ma_result result;
+    ma_device_config deviceConfig;
+    ma_device device;
+    ma_encoder_config encoderConfig;
+    ma_encoder encoder;
+
+    // Инициализация энкодера для WAV
+    encoderConfig = ma_encoder_config_init(ma_encoding_format_wav, ma_format_s16, 2, 48000);
+    result = ma_encoder_init_file("recorded_audio.wav", &encoderConfig, &encoder);
+    if (result != MA_SUCCESS) {
+        printf("Ошибка инициализации энкодера: %d\n", result);
+        return -1;
+    }
+
+    // Конфигурация устройства для захвата
+    deviceConfig = ma_device_config_init(ma_device_type_capture);
+    deviceConfig.capture.format = ma_format_s16;
+    deviceConfig.capture.channels = 2;
+    deviceConfig.sampleRate = 48000;
+    deviceConfig.dataCallback = data_callback;
+    deviceConfig.pUserData = &encoder;  // Передаем энкодер в callback
+
+    result = ma_device_init(NULL, &deviceConfig, &device);
+    if (result != MA_SUCCESS) {
+        printf("Ошибка инициализации устройства: %d\n", result);
+        ma_encoder_uninit(&encoder);
+        return -1;
+    }
+
+    printf("Начало записи на %d секунд...\n", RECORD_DURATION);
+    ma_device_start(&device);
+
+    // Ждем указанное время (простое изменение: используем ma_sleep для паузы)
+    ma_sleep(RECORD_DURATION * 1000);  // В миллисекундах
+
+    ma_device_stop(&device);
+    ma_device_uninit(&device);
+    ma_encoder_uninit(&encoder);
+
+    printf("Запись завершена. Файл: recorded_audio.wav\n");
+
+    (void)argc;
+    (void)argv;
+    return 0;
+}
